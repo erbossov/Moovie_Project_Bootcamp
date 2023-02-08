@@ -4,10 +4,13 @@ import Basket from "../../Images/Korzina.svg";
 import ProfileIcon from "../../Images/profile.svg";
 import { useEffect, useState } from "react";
 import { getDataFromBackend } from "../../utils/config";
+import { useNavigate } from "react-router";
 function Header() {
   const [searchText, setSearchText] = useState();
   const [data, setData] = useState([]);
   const [selectedFilm, setSelectedFilm] = useState();
+
+  const router = useNavigate();
 
   useEffect(() => {
     if (searchText) {
@@ -52,7 +55,12 @@ function Header() {
         </div>
         <div className="header__basketProfile__block">
           <div className="header__icons">
-            <img src={Basket} alt="" className="header__basket__logo" />
+            <img
+              src={Basket}
+              alt=""
+              className="header__basket__logo"
+              onClick={() => router("/basket")}
+            />
           </div>
           <div className="header__icons">
             <img src={ProfileIcon} alt="" className="header__profile__logo" />

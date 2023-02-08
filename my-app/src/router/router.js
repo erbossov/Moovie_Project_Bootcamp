@@ -1,7 +1,8 @@
 import { Route, Routes, Navigate } from "react-router";
-import App from "../App";
 import { BrowserRouter } from "react-router-dom";
 import Categories from "../components/Categories/Categories";
+import Basket from "../pages/Basket";
+import Main from "../pages/main/Main";
 {
   /* BrowserRouter -> компонент (сервис) который взаимодействует с
         React-маршрутизацией и реальным DOM. // Routes -> компонент который
@@ -15,7 +16,8 @@ const Router = () => {
     <BrowserRouter>
       <Routes>
         <Route path={"/"} element={<Navigate to={"/movie"} />} />
-        <Route path={"/movie"} element={<App />} />
+        <Route path={"/movie"} element={<Main />} />
+        <Route path={"/basket"} element={<Basket />} />
         <Route path={"/categories"} element={<Categories />} />
         <Route
           path="*"

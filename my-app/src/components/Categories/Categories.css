@@ -1,0 +1,23 @@
+.category__block {
+  display: flex;
+  flex-direction: column;
+  gap: 39px;
+  width: 403px;
+  margin-right: 62px;
+}
+.category__item {
+  background-color: #fff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 50px;
+}
+.category__item__text {
+  font-family: "SF Pro Display";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 36px;
+  margin: 12px 0;
+  letter-spacing: 0.035em;
+  color: #000000;
+  text-align: center;
+}
