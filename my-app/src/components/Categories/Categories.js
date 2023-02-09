@@ -1,19 +1,13 @@
-import { useState, useEffect } from "react";
-import { getDataFromBackend } from "../../utils/config";
 import "./Categories.css";
+import { useState, useEffect, useContext } from "react";
+import { ModalContext } from "../../providers/ModalProvider";
 const Categories = () => {
-  const [Categories, setCategories] = useState([]);
-
-  useEffect(() => {
-    getDataFromBackend().then((res) => {
-      setCategories(res.map((el) => el.category));
-    });
-  }, []);
+  const Categories = useContext(ModalContext);
   return (
     <div className="category__block">
       {Categories.map((el) => (
         <div className="category__item">
-          <p className="category__item__text">{el}</p>
+          <p className="category__item__text">{el.category}</p>
         </div>
       ))}
     </div>

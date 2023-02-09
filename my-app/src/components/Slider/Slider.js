@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { getDataFromBackend } from "../../utils/config";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -7,14 +7,10 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 import "./Slider.css";
+import { ModalContext } from "../../providers/ModalProvider";
 
 const Slider = () => {
-  const [items, setItems] = useState([]);
-  useEffect(() => {
-    getDataFromBackend().then((res) => {
-      setItems(res);
-    });
-  }, []);
+  const items = useContext(ModalContext);
   return (
     <div className="slider_block">
       <Swiper
