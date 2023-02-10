@@ -8,7 +8,7 @@ import { useNavigate } from "react-router";
 function Header() {
   const [searchText, setSearchText] = useState();
   const [data, setData] = useState([]);
-  const [selectedFilm, setSelectedFilm] = useState();
+  const [setSelectedFilm] = useState();
 
   const router = useNavigate();
 
@@ -24,7 +24,12 @@ function Header() {
   return (
     <div className="header__block">
       <div className="header__logo__block">
-        <img alt="" src={logo} className="header__logo__icon" />
+        <img
+          alt=""
+          src={logo}
+          className="header__logo__icon"
+          onClick={() => router("/movie")}
+        />
       </div>
       <div className="header__searchIcons__block">
         <div className="header__search">

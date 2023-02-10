@@ -5,10 +5,10 @@ import { ModalContext } from "../../providers/ModalProvider";
 import { useContext } from "react";
 
 const MovieList = () => {
-  const movies = useContext(ModalContext);
+  const { cartRefresher, data, cart } = useContext(ModalContext);
   return (
     <div className="movie__list">
-      {movies.map((el, index) => {
+      {data.map((el) => {
         const unfilledStars = Array(5).fill(
           <img className="movie__rating__image" src={unfilledStarIcon} />
         );
@@ -24,7 +24,13 @@ const MovieList = () => {
               <h3 className="movie__info__title">{el.title}</h3>
               <p className="movie__info__content">{el.description}</p>
               <div className="movie__rating__block">
-                <button className="movie__show__btn">Посмотреть</button>
+                <button
+                  className="movie__show__btn"
+                  onClick={() =>
+                    cartRefresher(Array.from(new Set([...cart, el])))
+                  }>
+                  Посмотреть
+                </button>
                 <div className="movie__ratings">
                   {unfilledStars.map((el) => el)}
                 </div>

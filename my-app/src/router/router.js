@@ -1,6 +1,7 @@
 import { Route, Routes, Navigate } from "react-router";
 import { BrowserRouter } from "react-router-dom";
 import Categories from "../components/Categories/Categories";
+import Header from "../components/Header/Header";
 import Basket from "../pages/Basket";
 import Main from "../pages/main/Main";
 {
@@ -18,6 +19,7 @@ const Router = () => {
         <Route path={"/"} element={<Navigate to={"/movie"} />} />
         <Route path={"/movie"} element={<Main />} />
         <Route path={"/basket"} element={<Basket />} />
+        <Route path={"/Header"} element={<Header />} />
         <Route path={"/categories"} element={<Categories />} />
         <Route
           path="*"
