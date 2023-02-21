@@ -2,7 +2,12 @@ import "../pages/Basket.css";
 import Header from "../components/Header/Header";
 import { useContext } from "react";
 import { ModalContext } from "../providers/ModalProvider";
+import SuccessIcon from "../Images/succesicon.svg";
+import SuccessIconX from "../Images/succesiconx.svg";
+import krestik from "../Images/krestik.svg";
+import { useState } from "react";
 const Basket = () => {
+  const [showModalWindow, setShowModalWindow] = useState(false);
   const { cart } = useContext(ModalContext);
   const calculateTotalPrice = () => {
     let sum = 0;
@@ -40,10 +45,31 @@ const Basket = () => {
             <p className="basket__total__price">
               Total:{calculateTotalPrice()}$
             </p>
-            <button className="basket__payment__button">Execute payment</button>
+            <button
+              className="basket__payment__button"
+              onClick={() => setShowModalWindow(true)}>
+              Execute payment
+            </button>
           </div>
         </div>
       </div>
+      {showModalWindow ? (
+        <div
+          className="modal__window"
+          onClick={() => {
+            setShowModalWindow(false);
+          }}>
+          <div className="modal__window__background">
+            <img src={krestik} className="modal__window__krestik" />
+            <img src={SuccessIcon} className="modal__window__logo" />
+            <div className="modal__window__text">Покупка успешно пройдена!</div>
+          </div>
+          <div className="modal__window__backgroundX">
+            <img src={SuccessIconX} className="modal__window__logoX" />
+            <div className="modal__window__textX">Произошла ошибка...</div>
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 };

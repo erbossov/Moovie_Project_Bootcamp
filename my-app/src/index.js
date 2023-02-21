@@ -4,13 +4,17 @@ import "./index.css";
 import ModalProvider from "./providers/ModalProvider";
 import reportWebVitals from "./reportWebVitals";
 import Router from "./router/router";
+import { Provider } from "react-redux";
+import { store } from "./store/store";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <ModalProvider>
-      <Router />
-    </ModalProvider>
+    <Provider store={store}>
+      <ModalProvider>
+        <Router />
+      </ModalProvider>
+    </Provider>
   </React.StrictMode>
 );
 

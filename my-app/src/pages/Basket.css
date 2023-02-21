@@ -106,3 +106,81 @@
   cursor: pointer;
   color: #ffffff;
 }
+
+.modal__window {
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  z-index: 2;
+}
+
+.modal__window__background {
+  width: 857px;
+  height: 496px;
+  background-color: #d9d9d9;
+  border-radius: 30px;
+  z-index: 1;
+  padding: 89px 52px 87px 52px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.modal__window__logo {
+  width: 176px;
+  height: 176px;
+  margin-bottom: 77px;
+}
+
+.modal__window__text {
+  font-family: "SF Pro Display";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 56px;
+  line-height: 67px;
+  /* identical to box height */
+  letter-spacing: 0.035em;
+  color: #161616;
+}
+.modal__window__backgroundX {
+  width: 857px;
+  height: 496px;
+  background-color: #d9d9d9;
+  border-radius: 30px;
+  z-index: 1;
+  padding: 89px 52px 87px 52px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.modal__window__logoX {
+  width: 176px;
+  height: 176px;
+  margin-bottom: 77px;
+}
+
+.modal__window__textX {
+  font-family: "SF Pro Display";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 56px;
+  line-height: 67px;
+  /* identical to box height */
+  letter-spacing: 0.035em;
+  color: #161616;
+}
+.modal__window__krestik {
+  position: relative;
+  right: -400px;
+  bottom: 50px;
+}
