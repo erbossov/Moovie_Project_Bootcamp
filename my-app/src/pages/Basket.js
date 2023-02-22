@@ -6,15 +6,29 @@ import SuccessIcon from "../Images/succesicon.svg";
 import SuccessIconX from "../Images/succesiconx.svg";
 import krestik from "../Images/krestik.svg";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart, deleteCart, deleteItem } from "../store/cartsStore/reducer";
+import { updateCart } from "../store/cartsStore/reducer";
 const Basket = () => {
+  const { cart } = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+
   const [showModalWindow, setShowModalWindow] = useState(false);
-  const { cart } = useContext(ModalContext);
   const calculateTotalPrice = () => {
     let sum = 0;
     for (let i = 0; i < cart.length; i++) {
       sum += cart[i].price;
     }
     return sum.toFixed(2);
+  };
+  const dispatchNewMovie = () => {
+    dispatch(
+      deleteItem({
+        title: "Furious 7",
+        description:
+          "Они покорили Токио и Рио, Лос-Анджелес и Лондон. Но мир больше не играет по их правилам. Зной арабских пустынь, неприлично высокие небоскребы, миллионы долларов на колесах и очень, очень знаменитый злодей. Скорость не знает границ.",
+      })
+    );
   };
   return (
     <div className="basket__background">
@@ -47,7 +61,7 @@ const Basket = () => {
             </p>
             <button
               className="basket__payment__button"
-              onClick={() => setShowModalWindow(true)}>
+              onClick={dispatchNewMovie}>
               Execute payment
             </button>
           </div>
@@ -73,4 +87,5 @@ const Basket = () => {
     </div>
   );
 };
+
 export default Basket;
