@@ -2,10 +2,19 @@ import "./MovieList.css";
 import StarIcon from "../../Images/Star.svg";
 import unfilledStarIcon from "../../Images/unfilledStar.svg";
 import { ModalContext } from "../../providers/ModalProvider";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
+import { getAllMovies, getAllMusic } from "../../store/moviesStore/thunk";
+import { useDispatch, useSelector } from "react-redux";
 
 const MovieList = () => {
-  const { cartRefresher, data, cart } = useContext(ModalContext);
+  const { cartRefresher, cart, data } = useContext(ModalContext);
+  const { musics } = useSelector((state) => state.musics);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAllMovies);
+    dispatch(getAllMusic());
+  }, []);
+  console.log(musics);
   return (
     <div className="movie__list">
       {data.map((el) => {

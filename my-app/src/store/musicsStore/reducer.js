@@ -6,7 +6,7 @@ export const musicsSlice = createSlice({
   initialState: initialStore,
   reducers: {
     addNewMusic: (state, music) => {
-      state.musics.push(music);
+      state.musics.push(music.payload);
     },
     deleteMusic: (state, music) => {
       state.musics = state.musics.filter(
